@@ -41,8 +41,26 @@ function generateCaptions() {
   }
 
   captionsSet.forEach(caption => {
-    let p = document.createElement("p");
-    p.innerText = caption;
-    output.appendChild(p);
+    let div = document.createElement("div");
+    div.className = "caption-box";
+
+    let text = document.createElement("p");
+    text.innerText = caption;
+
+    let button = document.createElement("button");
+    button.innerText = "Copy";
+    button.className = "copy-btn";
+
+    button.onclick = function () {
+      navigator.clipboard.writeText(caption);
+      button.innerText = "Copied!";
+      setTimeout(() => {
+        button.innerText = "Copy";
+      }, 1500);
+    };
+
+    div.appendChild(text);
+    div.appendChild(button);
+    output.appendChild(div);
   });
 }
