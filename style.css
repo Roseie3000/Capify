@@ -1,38 +1,50 @@
-function generateCaptions() {
-  let topic = document.getElementById("topic").value;
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-  let styles = [
-    "funny",
-    "aesthetic",
-    "motivational",
-    "trendy",
-    "bold",
-    "savage",
-    "inspirational",
-    "luxury",
-    "chill",
-    "emotional"
-  ];
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-  let output = document.getElementById("output");
-  output.innerHTML = "";
+h1 {
+  margin-bottom: 20px;
+}
 
-  styles.forEach(style => {
-    let caption = `${topic} but make it ${style} ✨`;
+input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
 
-    let p = document.createElement("p");
-    p.innerText = caption;
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #667eea;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-    let btn = document.createElement("button");
-    btn.innerText = "Copy";
-    btn.style.marginLeft = "10px";
+button:hover {
+  background: #5a67d8;
+}
 
-    btn.onclick = () => {
-      navigator.clipboard.writeText(caption);
-      btn.innerText = "Copied!";
-    };
-
-    p.appendChild(btn);
-    output.appendChild(p);
-  });
+#output p {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
 }
