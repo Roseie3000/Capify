@@ -1,16 +1,36 @@
 function generateCaptions() {
   let topic = document.getElementById("topic").value;
 
-  let starters = ["Obsessed with", "Can’t get enough of", "Living for", "Dreaming about", "Forever loving"];
-  let endings = ["✨", "🔥", "💫", "💖", "😎"];
-  let vibes = ["aesthetic", "iconic", "trendy", "bold", "chill", "luxury"];
+  let starters = [
+    "Obsessed with",
+    "Can’t get enough of",
+    "Living for",
+    "Dreaming about",
+    "Forever loving",
+    "Lowkey addicted to",
+    "Currently vibing with"
+  ];
+
+  let endings = ["✨", "🔥", "💫", "💖", "😎", "🌙", "⚡"];
+
+  let vibes = [
+    "aesthetic",
+    "iconic",
+    "trendy",
+    "bold",
+    "chill",
+    "luxury",
+    "minimal",
+    "soft",
+    "powerful"
+  ];
 
   let output = document.getElementById("output");
   output.innerHTML = "";
 
   let captionsSet = new Set();
 
-  while (captionsSet.size < 12) {
+  while (captionsSet.size < 15) {
     let randomStarter = starters[Math.floor(Math.random() * starters.length)];
     let randomEnding = endings[Math.floor(Math.random() * endings.length)];
     let randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
