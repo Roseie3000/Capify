@@ -1,20 +1,38 @@
-body {
-  font-family: Arial;
-  text-align: center;
-  padding: 50px;
-}
+function generateCaptions() {
+  let topic = document.getElementById("topic").value;
 
-input {
-  padding: 10px;
-  width: 300px;
-}
+  let styles = [
+    "funny",
+    "aesthetic",
+    "motivational",
+    "trendy",
+    "bold",
+    "savage",
+    "inspirational",
+    "luxury",
+    "chill",
+    "emotional"
+  ];
 
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-}
+  let output = document.getElementById("output");
+  output.innerHTML = "";
 
-#output {
-  margin-top: 20px;
+  styles.forEach(style => {
+    let caption = `${topic} but make it ${style} ✨`;
+
+    let p = document.createElement("p");
+    p.innerText = caption;
+
+    let btn = document.createElement("button");
+    btn.innerText = "Copy";
+    btn.style.marginLeft = "10px";
+
+    btn.onclick = () => {
+      navigator.clipboard.writeText(caption);
+      btn.innerText = "Copied!";
+    };
+
+    p.appendChild(btn);
+    output.appendChild(p);
+  });
 }
