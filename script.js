@@ -8,15 +8,21 @@ function generateCaptions() {
   let output = document.getElementById("output");
   output.innerHTML = "";
 
-  for (let i = 0; i < 12; i++) {
+  let captionsSet = new Set();
+
+  while (captionsSet.size < 12) {
     let randomStarter = starters[Math.floor(Math.random() * starters.length)];
     let randomEnding = endings[Math.floor(Math.random() * endings.length)];
     let randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
 
     let caption = `${randomStarter} ${topic} vibes – keeping it ${randomVibe} ${randomEnding}`;
 
+    captionsSet.add(caption);
+  }
+
+  captionsSet.forEach(caption => {
     let p = document.createElement("p");
     p.innerText = caption;
     output.appendChild(p);
-  }
+  });
 }
