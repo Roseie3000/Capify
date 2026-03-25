@@ -3,20 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Capify AI Caption Generator</title>
+
+  <!-- Connect CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
   <div class="container">
+    
     <h1>✨ Capify AI Caption Generator</h1>
 
-    <input type="text" id="topic" placeholder="Enter your topic..." />
-    
+    <!-- Input -->
+    <input 
+      type="text" 
+      id="topic" 
+      placeholder="Enter your topic..." 
+    />
+
+    <!-- Button -->
     <button onclick="generateCaptions()">Generate</button>
 
+    <!-- Output -->
     <div id="output"></div>
+
   </div>
 
+  <!-- Connect JS -->
   <script src="script.js"></script>
+
 </body>
 </html>
