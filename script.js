@@ -1,53 +1,22 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: white;
-}
+function generateCaptions() {
+  let topic = document.getElementById("topic").value;
 
-.container {
-  max-width: 600px;
-  margin: 100px auto;
-  text-align: center;
-  background: rgba(0,0,0,0.3);
-  padding: 30px;
-  border-radius: 15px;
-}
+  let starters = ["Obsessed with", "Can’t get enough of", "Living for", "Dreaming about", "Forever loving"];
+  let endings = ["✨", "🔥", "💫", "💖", "😎"];
+  let vibes = ["aesthetic", "iconic", "trendy", "bold", "chill", "luxury"];
 
-h1 {
-  margin-bottom: 10px;
-}
+  let output = document.getElementById("output");
+  output.innerHTML = "";
 
-input {
-  padding: 12px;
-  width: 70%;
-  border: none;
-  border-radius: 8px;
-}
+  for (let i = 0; i < 12; i++) {
+    let randomStarter = starters[Math.floor(Math.random() * starters.length)];
+    let randomEnding = endings[Math.floor(Math.random() * endings.length)];
+    let randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
 
-button {
-  padding: 12px 20px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #ff7a18;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
+    let caption = `${randomStarter} ${topic} vibes – keeping it ${randomVibe} ${randomEnding}`;
 
-button:hover {
-  background: #ff9a3c;
-}
-
-#output {
-  margin-top: 20px;
-  text-align: left;
-}
-
-#output p {
-  background: rgba(255,255,255,0.1);
-  padding: 10px;
-  border-radius: 8px;
-  margin: 5px 0;
+    let p = document.createElement("p");
+    p.innerText = caption;
+    output.appendChild(p);
+  }
 }
